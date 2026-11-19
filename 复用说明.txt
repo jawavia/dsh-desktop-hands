@@ -1,0 +1,70 @@
+dsh-desktop-hands 复用说明
+========================
+
+版本：0.2.6（宿主 DSH 当前 0.2.x，本包保持同代的 0.x 版本，不越级标 1.0）
+形态：独立产品包（三引擎 vendor 进 engines/，含 x2 koffi 原生库；本地自用，不发布/不上传）
+作用：一个包，三双手眼 —— click-matrix（像素手）+ x2（控件手）+ stroke（笔画手），共用一套授权、一个急停、一份审计、一份拒绝清单。
+工具：默认 25 个（pixel 14 + x2 6 + stroke 5；pixel 14 = 合并入口 screen_view 的 10 个 action）；
+      显式 mergeReadSide=false 可回退 35 个（pixel 24 = 旧 7 读 + 3 窗口 + screen_view，旧名保留一版）。
+
+包内结构：
+  engines/pixel    = dsh-click-matrix 0.9.5（默认 14 工具 / 显式 false 回退 24）
+  engines/control  = dsh-x2（6 工具，koffi + 原生库已内置）
+  engines/stroke   = dsh-stroke（5 工具）
+  core/            = 授权 gate / 停止 abort / 审计 / 拒绝清单 共享模块
+  tools/           = check-bundle / profile-switch / seal-audit / verify / assert-surface /
+                     audit-report / make-tree-manifest / baseline.json（漂移基线，随包分发）
+  一键部署.cmd / 一键回滚.cmd / 一键启用.cmd
+
+读侧+窗口合并开关（v0.9.5/P4+P6；v0.2.6 起默认 true）：
+  mergeReadSide=true（默认）= 25 工具，旧 10 个（7 读 + 3 窗口）不注册，看桌面只剩 screen_view（10 action）。
+  mergeReadSide=false       = 35 工具（回退路径），旧 10 个仍注册、保留原描述、不加 deprecated 注记；
+                            引导靠常驻安全段（systemPrompt「click-matrix-safety」里的 screen_view）。
+  回退方式（三选一，改完重启 DSH 生效；不改代码）：
+    <DSH_HOME>\click-matrix\config-overrides.json 写 {"mergeReadSide": false}
+    POST /api/click-matrix/config {"key":"mergeReadSide","value":false}
+    profile 的 cordis.patch.yml 里 click-matrix 的 config 加 mergeReadSide: false
+
+设置页（v0.2.1 新增）：
+  DSH 设置 →「屏幕控制」分栏：
+    - 名单四块（拒绝 / 放行 / 申请 / 内置安全清单只读）默认折叠，点标题展开；
+    - 数值项（授权/预算/批量/人类活动/能力/超时/审计）常展开；
+    - 改动即时保存到 ~/.dsh/click-matrix/config-overrides.json，重启 DSH 生效；
+    - 安全关键项（mode / requireAbortHotkey / allowSelf*）不可在设置页改。
+
+三层 ACL（v0.2.1 新增）：
+  优先级：拒绝 > 放行 > 申请 > 默认。
+    - 拒绝 = 拦（内置安全清单永远最高，盖不过）；
+    - 放行 = 豁免「申请」（盖不过拒绝和内置清单）；
+    - 申请 = 命中后工具返回「需人类确认」。
+
+【换机器 / 换目录：可直接分发】
+  整套路径都不写死：PKG = 脚本自己所在目录，node/pnpm 走 PATH，
+  三个引擎的 link 由 profile-switch.mjs 从本包根目录推算出来。
+  步骤：
+    1. 解压到任意目录（如 E:\apps\dsh-desktop-hands）；
+    2. 关掉 DSH，双击 一键部署.cmd（等价 node tools/profile-switch.mjs --apply）；
+    3. 在 profile 目录跑 pnpm install --no-frozen-lockfile --prefer-offline；
+    4. 重启 DSH。
+  前提：Node.js 22+（本包在 22.22.2 与 24.20.0 双 Node 实测 verify 全绿；DSH 宿主内部跑在 Electron 自带 Node 24.x）与 pnpm 在 PATH 里；Windows x64；.NET Framework 4.x（helper 用系统自带 csc 编译）。
+  回滚：一键回滚.cmd 或 node tools/profile-switch.mjs --rollback <备份>。
+
+本地验证流水线（一条命令跑全量检查，等价本地 CI）：
+  npm run verify   （= node tools/verify.mjs，17 项（含跨三引擎集成冒烟 + BUILD-ID 自洽）；含工具面断言 38 条 + 四个引擎的自测）
+  单独跑：node tools/assert-surface.mjs [--selftest]   node tools/check-bundle.mjs
+          node tools/audit-report.mjs                  node tools/make-tree-manifest.mjs <树根> <输出>
+
+停止语义（唯一通道、两种语义）：
+  Esc / Ctrl+Alt+F11        = hard（立即停 + 归还鼠标，≤100ms）
+  Ctrl+Shift+F11            = soft（到原子边界停，继续需人类确认）
+  授权：/click-matrix arm <秒|on>（一次开三引擎；`on`=常开，Ctrl+Alt+F12 开关；
+        人类碰键鼠自动暂停、空闲 20 秒自动恢复）
+
+数据目录：~/.dsh/dsh-desktop-hands/（gate.json / stop.signal / deny-list.json / audit/）
+           ~/.dsh/click-matrix/（audit.jsonl / config-overrides.json）
+审计：pixel → ~/.dsh/click-matrix/audit.jsonl（schema v2 链，engine/approver 字段）
+      control → ~/.dsh/dsh-desktop-hands/audit/control.jsonl（hash 链）
+      stroke  → ~/.dsh/dsh-desktop-hands/audit/stroke.jsonl（每次调用一行，无链）
+
+许可：本包 MIT；三引擎均 MIT/兼容（x2 源自 MIT 的 ql0423/dsh-screen，署名见 THIRD-PARTY-NOTICES.md）。
+再分发：技术上可（MIT，保留署名 + 去 private 即可）；本地自用是既定决策，不是许可限制。

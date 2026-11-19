@@ -1,0 +1,27 @@
+{
+  "name": "dsh-desktop-hands",
+  "version": "0.2.6",
+  "private": true,
+  "type": "module",
+  "main": "index.js",
+  "license": "MIT",
+  "description": "一个包，三双手眼：像素对准 / 控件直取 / 笔画播放，共用授权、急停、审计、拒绝清单。",
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "engines": {
+    "node": ">=22",
+    "dsh": ">=0.2.1-rc.2 <0.3.0"
+  },
+  "scripts": {
+    "check": "node tools/check-bundle.mjs",
+    "verify": "node tools/verify.mjs"
+  },
+  "dependencies": {
+    "dsh-click-matrix": "file:./engines/pixel",
+    "dsh-stroke": "file:./engines/stroke",
+    "dsh-x2": "file:./engines/control"
+  }
+}

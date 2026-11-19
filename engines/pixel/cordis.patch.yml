@@ -1,0 +1,32 @@
+# dsh-click-matrix bundle patch: host-only plugin (native lattice mouse control).
+#
+# One root-level loader row. `name` must stay the real package name: the bundle
+# installer resolves it from the profile's own node_modules, and the row is
+# hot-mountable (plain insert), so a wrong name means "Cannot find package".
+#
+# Human safety model in one screen:
+# - inert by default: mode=ask, no mouse input is injected until a human
+#   approves / arms a bounded window; the model can never arm itself
+# - Ctrl+Alt+F12 (global hotkey) or `/click-matrix arm [s]` opens a bounded
+#   window (default 25 s / 10 clicks); the top status pill STOP or
+#   `/click-matrix stop` ends it and aborts any action in flight
+# - DSH's own window, elevated windows, the UAC secure desktop and
+#   deny-listed processes/titles are never valid mouse targets
+# - mouse, keyboard and clipboard input only inside a human-authorized window
+#   (enableKeyboard / enableClipboard can turn whole classes off); buttons are
+#   always released on abort, timeout or exception
+# - every injected or denied action is appended to
+#   <DSH_HOME>/click-matrix/audit.jsonl
+#
+# `config` is intentionally empty: all defaults live in the host plugin
+# (see README "配置"). Override them from a higher-priority profile patch
+# layer by targeting this row by id, e.g.
+#   - id: click-matrix
+#     config:
+#       mode: ask
+#       lattice: standard
+#       binning: target
+- insert:
+    - id: click-matrix
+      name: "dsh-click-matrix"
+      config: {}

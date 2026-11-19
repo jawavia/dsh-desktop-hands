@@ -1,0 +1,628 @@
+{
+  "tool": "measure-tools3",
+  "version": 3,
+  "generatedAt": "2026-11-08T07:33:51.574Z",
+  "node": "v24.20.0",
+  "tree": {
+    "path": "<repo>",
+    "sourceHashes": {
+      "pixel": "5a038df90a5ebfeed35611e6968a0d1e93ea9a58edc7b0fd65999b19ea625390",
+      "control": "e8775f6e5ffe44291e9e51aafff8af74f1d4d99523b6e336f6f5314031619c19",
+      "stroke": "8975f9a94add3e6e422371688b288ba88ddb5d9c332a2291c9b37d85170c0c21"
+    }
+  },
+  "metric": {
+    "descChars": "JSON 解码后的 JS 字符串 .length（UTF-16 码元）",
+    "descBytes": "同一字符串 UTF-8 字节数",
+    "paramCount": "顶层参数名个数",
+    "paramSchemaBytes": "JSON.stringify(参数 schema) 的 UTF-8 字节数（紧凑）",
+    "outputSchemaBytes": "JSON.stringify(output.schema) 的 UTF-8 字节数（紧凑）",
+    "subtotal": "descBytes + paramSchemaBytes + outputSchemaBytes",
+    "paramSchemaSource": {
+      "pixel": "源码即完整 JSON Schema（原样交 ctx.tools.register）",
+      "stroke": "源码即完整 JSON Schema（原样交 ctx.tools.register）",
+      "control": "源码是 properties 裸表；按宿主 defineTool 的形状估算为 {type:\"object\",properties,required?}"
+    }
+  },
+  "nameCheck": {
+    "ok": true,
+    "missing": [],
+    "extra": []
+  },
+  "engines": {
+    "pixel": {
+      "file": "engines/pixel/index.js",
+      "toolCount": 14,
+      "outputSchemaLine": 89
+    },
+    "control": {
+      "file": "engines/control/src/tools.js",
+      "toolCount": 6,
+      "outputSchemaLine": null
+    },
+    "stroke": {
+      "file": "engines/stroke/index.js",
+      "toolCount": 5,
+      "outputSchemaLine": 29
+    }
+  },
+  "tools": [
+    {
+      "name": "mouse_move",
+      "engine": "pixel",
+      "source": {
+        "file": "engines/pixel/index.js",
+        "callLine": 2934,
+        "nameLine": 2934
+      },
+      "descChars": 92,
+      "descBytes": 230,
+      "paramCount": 8,
+      "paramSchemaBytes": 938,
+      "outputSchemaBytes": 106,
+      "outputSchemaLine": 89,
+      "paramMode": "source-json-schema",
+      "notes": []
+    },
+    {
+      "name": "mouse_click",
+      "engine": "pixel",
+      "source": {
+        "file": "engines/pixel/index.js",
+        "callLine": 3009,
+        "nameLine": 3009
+      },
+      "descChars": 230,
+      "descBytes": 516,
+      "paramCount": 11,
+      "paramSchemaBytes": 1473,
+      "outputSchemaBytes": 106,
+      "outputSchemaLine": 89,
+      "paramMode": "source-json-schema",
+      "notes": []
+    },
+    {
+      "name": "mouse_drag",
+      "engine": "pixel",
+      "source": {
+        "file": "engines/pixel/index.js",
+        "callLine": 3325,
+        "nameLine": 3325
+      },
+      "descChars": 94,
+      "descBytes": 234,
+      "paramCount": 6,
+      "paramSchemaBytes": 816,
+      "outputSchemaBytes": 106,
+      "outputSchemaLine": 89,
+      "paramMode": "source-json-schema",
+      "notes": []
+    },
+    {
+      "name": "mouse_scroll",
+      "engine": "pixel",
+      "source": {
+        "file": "engines/pixel/index.js",
+        "callLine": 3442,
+        "nameLine": 3442
+      },
+      "descChars": 114,
+      "descBytes": 274,
+      "paramCount": 6,
+      "paramSchemaBytes": 602,
+      "outputSchemaBytes": 106,
+      "outputSchemaLine": 89,
+      "paramMode": "source-json-schema",
+      "notes": []
+    },
+    {
+      "name": "mouse_batch",
+      "engine": "pixel",
+      "source": {
+        "file": "engines/pixel/index.js",
+        "callLine": 3540,
+        "nameLine": 3540
+      },
+      "descChars": 240,
+      "descBytes": 514,
+      "paramCount": 7,
+      "paramSchemaBytes": 3859,
+      "outputSchemaBytes": 106,
+      "outputSchemaLine": 89,
+      "paramMode": "source-json-schema",
+      "notes": []
+    },
+    {
+      "name": "type_text",
+      "engine": "pixel",
+      "source": {
+        "file": "engines/pixel/index.js",
+        "callLine": 4400,
+        "nameLine": 4400
+      },
+      "descChars": 73,
+      "descBytes": 183,
+      "paramCount": 2,
+      "paramSchemaBytes": 387,
+      "outputSchemaBytes": 106,
+      "outputSchemaLine": 89,
+      "paramMode": "source-json-schema",
+      "notes": []
+    },
+    {
+      "name": "press_keys",
+      "engine": "pixel",
+      "source": {
+        "file": "engines/pixel/index.js",
+        "callLine": 4466,
+        "nameLine": 4466
+      },
+      "descChars": 98,
+      "descBytes": 192,
+      "paramCount": 1,
+      "paramSchemaBytes": 216,
+      "outputSchemaBytes": 106,
+      "outputSchemaLine": 89,
+      "paramMode": "source-json-schema",
+      "notes": []
+    },
+    {
+      "name": "clipboard_get",
+      "engine": "pixel",
+      "source": {
+        "file": "engines/pixel/index.js",
+        "callLine": 4515,
+        "nameLine": 4515
+      },
+      "descChars": 128,
+      "descBytes": 274,
+      "paramCount": 1,
+      "paramSchemaBytes": 211,
+      "outputSchemaBytes": 106,
+      "outputSchemaLine": 89,
+      "paramMode": "source-json-schema",
+      "notes": []
+    },
+    {
+      "name": "clipboard_set",
+      "engine": "pixel",
+      "source": {
+        "file": "engines/pixel/index.js",
+        "callLine": 4565,
+        "nameLine": 4565
+      },
+      "descChars": 57,
+      "descBytes": 137,
+      "paramCount": 1,
+      "paramSchemaBytes": 167,
+      "outputSchemaBytes": 106,
+      "outputSchemaLine": 89,
+      "paramMode": "source-json-schema",
+      "notes": []
+    },
+    {
+      "name": "mouse_abort",
+      "engine": "pixel",
+      "source": {
+        "file": "engines/pixel/index.js",
+        "callLine": 4707,
+        "nameLine": 4707
+      },
+      "descChars": 109,
+      "descBytes": 291,
+      "paramCount": 1,
+      "paramSchemaBytes": 239,
+      "outputSchemaBytes": 106,
+      "outputSchemaLine": 89,
+      "paramMode": "source-json-schema",
+      "notes": []
+    },
+    {
+      "name": "matrix_overlay",
+      "engine": "pixel",
+      "source": {
+        "file": "engines/pixel/index.js",
+        "callLine": 4739,
+        "nameLine": 4739
+      },
+      "descChars": 64,
+      "descBytes": 152,
+      "paramCount": 3,
+      "paramSchemaBytes": 346,
+      "outputSchemaBytes": 106,
+      "outputSchemaLine": 89,
+      "paramMode": "source-json-schema",
+      "notes": []
+    },
+    {
+      "name": "click_matrix_doctor",
+      "engine": "pixel",
+      "source": {
+        "file": "engines/pixel/index.js",
+        "callLine": 4796,
+        "nameLine": 4796
+      },
+      "descChars": 123,
+      "descBytes": 277,
+      "paramCount": 0,
+      "paramSchemaBytes": 62,
+      "outputSchemaBytes": 106,
+      "outputSchemaLine": 89,
+      "paramMode": "source-json-schema",
+      "notes": []
+    },
+    {
+      "name": "audit_tail",
+      "engine": "pixel",
+      "source": {
+        "file": "engines/pixel/index.js",
+        "callLine": 4824,
+        "nameLine": 4824
+      },
+      "descChars": 57,
+      "descBytes": 153,
+      "paramCount": 1,
+      "paramSchemaBytes": 145,
+      "outputSchemaBytes": 106,
+      "outputSchemaLine": 89,
+      "paramMode": "source-json-schema",
+      "notes": []
+    },
+    {
+      "name": "screen_view",
+      "engine": "pixel",
+      "source": {
+        "file": "engines/pixel/index.js",
+        "callLine": 4886,
+        "nameLine": 4886
+      },
+      "descChars": 358,
+      "descBytes": 624,
+      "paramCount": 32,
+      "paramSchemaBytes": 5374,
+      "outputSchemaBytes": 106,
+      "outputSchemaLine": 89,
+      "paramMode": "template-resolved",
+      "notes": [
+        "template-resolved:config.waitDefaultTimeoutMs=5000,WAIT_TIMEOUT_MAX_MS=30000,config.waitStableMs=400"
+      ]
+    },
+    {
+      "name": "screen_look",
+      "engine": "control",
+      "source": {
+        "file": "engines/control/src/tools.js",
+        "callLine": 653,
+        "nameLine": 654
+      },
+      "descChars": 253,
+      "descBytes": 553,
+      "paramCount": 10,
+      "paramSchemaBytes": 1372,
+      "outputSchemaBytes": 637,
+      "outputSchemaLine": null,
+      "paramMode": "host-shape-estimate",
+      "notes": [],
+      "declaredParamBytes": 1341,
+      "outputMode": "host-shape-estimate"
+    },
+    {
+      "name": "screen_windows",
+      "engine": "control",
+      "source": {
+        "file": "engines/control/src/tools.js",
+        "callLine": 843,
+        "nameLine": 844
+      },
+      "descChars": 61,
+      "descBytes": 155,
+      "paramCount": 0,
+      "paramSchemaBytes": 33,
+      "outputSchemaBytes": 17,
+      "outputSchemaLine": 21,
+      "paramMode": "host-shape-estimate",
+      "notes": [],
+      "declaredParamBytes": 2,
+      "outputMode": "host-shape-estimate"
+    },
+    {
+      "name": "screen_focus",
+      "engine": "control",
+      "source": {
+        "file": "engines/control/src/tools.js",
+        "callLine": 856,
+        "nameLine": 857
+      },
+      "descChars": 48,
+      "descBytes": 130,
+      "paramCount": 1,
+      "paramSchemaBytes": 129,
+      "outputSchemaBytes": 17,
+      "outputSchemaLine": 21,
+      "paramMode": "host-shape-estimate",
+      "notes": [],
+      "declaredParamBytes": 92,
+      "outputMode": "host-shape-estimate"
+    },
+    {
+      "name": "screen_uia",
+      "engine": "control",
+      "source": {
+        "file": "engines/control/src/tools.js",
+        "callLine": 878,
+        "nameLine": 879
+      },
+      "descChars": 277,
+      "descBytes": 585,
+      "paramCount": 11,
+      "paramSchemaBytes": 1081,
+      "outputSchemaBytes": 17,
+      "outputSchemaLine": 21,
+      "paramMode": "host-shape-estimate",
+      "notes": [],
+      "declaredParamBytes": 1044,
+      "outputMode": "host-shape-estimate"
+    },
+    {
+      "name": "screen_act",
+      "engine": "control",
+      "source": {
+        "file": "engines/control/src/tools.js",
+        "callLine": 946,
+        "nameLine": 947
+      },
+      "descChars": 365,
+      "descBytes": 811,
+      "paramCount": 24,
+      "paramSchemaBytes": 2778,
+      "outputSchemaBytes": 17,
+      "outputSchemaLine": 21,
+      "paramMode": "host-shape-estimate",
+      "notes": [],
+      "declaredParamBytes": 2741,
+      "outputMode": "host-shape-estimate"
+    },
+    {
+      "name": "screen_sequence",
+      "engine": "control",
+      "source": {
+        "file": "engines/control/src/tools.js",
+        "callLine": 1128,
+        "nameLine": 1129
+      },
+      "descChars": 415,
+      "descBytes": 983,
+      "paramCount": 7,
+      "paramSchemaBytes": 2813,
+      "outputSchemaBytes": 17,
+      "outputSchemaLine": 21,
+      "paramMode": "host-shape-estimate",
+      "notes": [],
+      "declaredParamBytes": 2771,
+      "outputMode": "host-shape-estimate"
+    },
+    {
+      "name": "stroke_status",
+      "engine": "stroke",
+      "source": {
+        "file": "engines/stroke/index.js",
+        "callLine": 562,
+        "nameLine": 562
+      },
+      "descChars": 64,
+      "descBytes": 116,
+      "paramCount": 0,
+      "paramSchemaBytes": 62,
+      "outputSchemaBytes": 77,
+      "outputSchemaLine": 29,
+      "paramMode": "source-json-schema",
+      "notes": []
+    },
+    {
+      "name": "stroke_arm",
+      "engine": "stroke",
+      "source": {
+        "file": "engines/stroke/index.js",
+        "callLine": 581,
+        "nameLine": 581
+      },
+      "descChars": 106,
+      "descBytes": 220,
+      "paramCount": 3,
+      "paramSchemaBytes": 431,
+      "outputSchemaBytes": 77,
+      "outputSchemaLine": 29,
+      "paramMode": "source-json-schema",
+      "notes": []
+    },
+    {
+      "name": "stroke_draw",
+      "engine": "stroke",
+      "source": {
+        "file": "engines/stroke/index.js",
+        "callLine": 615,
+        "nameLine": 615
+      },
+      "descChars": 89,
+      "descBytes": 165,
+      "paramCount": 4,
+      "paramSchemaBytes": 635,
+      "outputSchemaBytes": 77,
+      "outputSchemaLine": 29,
+      "paramMode": "source-json-schema",
+      "notes": []
+    },
+    {
+      "name": "stroke_diag",
+      "engine": "stroke",
+      "source": {
+        "file": "engines/stroke/index.js",
+        "callLine": 685,
+        "nameLine": 685
+      },
+      "descChars": 89,
+      "descBytes": 153,
+      "paramCount": 4,
+      "paramSchemaBytes": 387,
+      "outputSchemaBytes": 77,
+      "outputSchemaLine": 29,
+      "paramMode": "source-json-schema",
+      "notes": []
+    },
+    {
+      "name": "stroke_stop",
+      "engine": "stroke",
+      "source": {
+        "file": "engines/stroke/index.js",
+        "callLine": 713,
+        "nameLine": 713
+      },
+      "descChars": 32,
+      "descBytes": 70,
+      "paramCount": 0,
+      "paramSchemaBytes": 62,
+      "outputSchemaBytes": 77,
+      "outputSchemaLine": 29,
+      "paramMode": "source-json-schema",
+      "notes": []
+    }
+  ],
+  "groups": {
+    "pixel": {
+      "tools": 14,
+      "descChars": 1837,
+      "descBytes": 4051,
+      "paramSchemaBytes": 14835,
+      "outputSchemaBytes": 1484,
+      "totalBytes": 20370
+    },
+    "control": {
+      "tools": 6,
+      "descChars": 1419,
+      "descBytes": 3217,
+      "paramSchemaBytes": 8206,
+      "outputSchemaBytes": 722,
+      "totalBytes": 12145
+    },
+    "stroke": {
+      "tools": 5,
+      "descChars": 380,
+      "descBytes": 724,
+      "paramSchemaBytes": 1577,
+      "outputSchemaBytes": 385,
+      "totalBytes": 2686
+    }
+  },
+  "totals": {
+    "tools": 25,
+    "descChars": 3636,
+    "descBytes": 7992,
+    "paramSchemaBytes": 24618,
+    "outputSchemaBytes": 2591,
+    "totalBytes": 35201,
+    "namesBytes": 292
+  },
+  "delta": {
+    "note": "旧 measure-tools2.mjs 的 31 个 / 52,976 B 的来源分解（旧解析器逻辑在本文件内原样重放）；I2-A 合并态重录（2026-11-08）：tools/totals 只计默认注册的 25 个（pixel 旧 10 个默认不注册、不计入），ghosts 只保留旧解析器的 2 个假名",
+    "old": {
+      "tools": 31,
+      "descBytes": 10837,
+      "paramBytes": 29298,
+      "outBytes": 4583,
+      "total": 44718
+    },
+    "oldNames": [
+      "screen_info",
+      "screen_capture",
+      "screen_zoom",
+      "screen_locate",
+      "screen_text",
+      "screen_read",
+      "window_list",
+      "window_focus",
+      "wait_window",
+      "mouse_move",
+      "mouse_click",
+      "mouse_drag",
+      "mouse_scroll",
+      "mouse_batch",
+      "type_text",
+      "press_keys",
+      "clipboard_get",
+      "clipboard_set",
+      "screen_wait",
+      "mouse_abort",
+      "matrix_overlay",
+      "click_matrix_doctor",
+      "audit_tail",
+      "after",
+      "screen_look",
+      "look",
+      "screen_windows",
+      "screen_focus",
+      "screen_uia",
+      "screen_act",
+      "screen_sequence"
+    ],
+    "ghosts": [
+      {
+        "name": "after",
+        "descBytes": 0,
+        "paramBytes": 0,
+        "outBytes": 0,
+        "total": 0
+      },
+      {
+        "name": "look",
+        "descBytes": 585,
+        "paramBytes": 2,
+        "outBytes": 93,
+        "total": 680
+      }
+    ],
+    "ghostBytesOld": 680,
+    "missingEngineTools": [
+      {
+        "name": "stroke_status",
+        "descBytes": 116,
+        "paramSchemaBytes": 62,
+        "outputSchemaBytes": 77,
+        "total": 255
+      },
+      {
+        "name": "stroke_arm",
+        "descBytes": 220,
+        "paramSchemaBytes": 431,
+        "outputSchemaBytes": 77,
+        "total": 728
+      },
+      {
+        "name": "stroke_draw",
+        "descBytes": 165,
+        "paramSchemaBytes": 635,
+        "outputSchemaBytes": 77,
+        "total": 877
+      },
+      {
+        "name": "stroke_diag",
+        "descBytes": 153,
+        "paramSchemaBytes": 387,
+        "outputSchemaBytes": 77,
+        "total": 617
+      },
+      {
+        "name": "stroke_stop",
+        "descBytes": 70,
+        "paramSchemaBytes": 62,
+        "outputSchemaBytes": 77,
+        "total": 209
+      }
+    ],
+    "strokeNewBytes": 2686,
+    "commonOldBytes": 32203,
+    "commonNewBytes": 26411,
+    "commonMethodDelta": -5792,
+    "newTotal": 35201,
+    "identityCheck": false
+  }
+}

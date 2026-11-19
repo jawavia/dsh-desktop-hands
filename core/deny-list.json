@@ -1,0 +1,25 @@
+{
+  "version": 1,
+  "source": "dsh-desktop-hands",
+  "note": "三引擎共享的拒绝清单。dsh-desktop-hands 负责把它播种到 ~/.dsh/dsh-desktop-hands/deny-list.json；click-matrix / x2 / stroke 各自加载同一份。",
+  "groups": {
+    "security": {
+      "label": "安全软件面板",
+      "processes": ["hipsmain.exe", "hipstray.exe", "hipstray64.exe", "360safe.exe", "360tray.exe", "qqpctray.exe", "securityhealthsystray.exe", "securityhealthui.exe"],
+      "titleExact": [],
+      "titleNeedles": ["windows 安全中心", "火绒安全软件"]
+    },
+    "credential": {
+      "label": "凭据管理器",
+      "processes": ["1password.exe", "bitwarden.exe", "keepass.exe", "keepassxc.exe", "dashlane.exe", "enpass.exe", "keeper.exe"],
+      "titleExact": [],
+      "titleNeedles": []
+    },
+    "system-config": {
+      "label": "系统配置工具",
+      "processes": ["regedit.exe", "taskmgr.exe", "compmgmtlauncher.exe", "virtmgmt.msc"],
+      "titleExact": ["注册表编辑器", "磁盘管理", "服务", "组策略编辑器", "本地安全策略", "事件查看器", "任务计划程序", "系统配置", "BitLocker 驱动器加密"],
+      "titleNeedles": []
+    }
+  }
+}

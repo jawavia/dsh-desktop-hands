@@ -1,0 +1,6 @@
+test/run/
+test/bin/
+dist/
+*.log
+.git/
+.gitignore

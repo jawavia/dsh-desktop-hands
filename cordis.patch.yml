@@ -1,0 +1,27 @@
+# dsh-desktop-hands · 单包骨架（第 1 步）
+#
+# 三行 insert，id 必须与原插件保持一致：
+# 用户 profile 的 cordis.patch.yml 里有按 id 的配置覆盖块（例：click-matrix 的图片预算），
+# id 一改，那些覆盖块就静默失效。
+#
+# 本步 config 一律留空 → 三家使用各自默认值，行为零变化。
+# ② 以后才按引擎加 scope（engine/approver 等）。
+#
+# 三条约束（实测，见 README「安装」）：
+# 1. 本包所在的 bundle 名必须写进 profile 的 dsh.profile.bundles，patch 才会生效；
+#    只放进 dependencies 不算启用。
+# 2. 启用本包之前，必须把 dsh-click-matrix / dsh-stroke 从 dsh.profile.bundles 里去掉：
+#    两行同 id 时 loader 不报错、工具也不会重复，但哪一行的 config 生效取决于顺序
+#    （② 之后按引擎加 scope 时会踩坑）。只留一行。
+# 3. 三个 link: 依赖保留在 package.json 里（本步不删任何 junction），
+#    这样即使 profile 侧把它们从 dependencies 移除，引擎包仍在 node_modules 里可解析。
+- insert:
+    - id: click-matrix
+      name: dsh-click-matrix
+      config: {}
+    - id: dsh-x2
+      name: dsh-x2
+      config: {}
+    - id: dsh-stroke
+      name: dsh-stroke
+      config: {}

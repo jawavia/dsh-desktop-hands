@@ -1,0 +1,27 @@
+{
+  "name": "dsh-stroke",
+  "version": "0.1.0",
+  "description": "Smooth stroke executor for DSH: play precomputed point lists with timestamps as real mouse input (session-level arm; canvas as testbed).",
+  "type": "module",
+  "main": "index.js",
+  "exports": {
+    ".": "./index.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "index.js",
+    "runtime/stroke-helper.exe",
+    "runtime/stroke-helper.cs",
+    "README.md"
+  ],
+  "engines": {
+    "node": ">=22",
+    "dsh": ">=0.2.1-rc.2 <0.3.0"
+  },
+  "dependencies": {},
+  "dsh": {
+    "engines": {
+      "dsh": ">=0.2.1-rc.2 <0.3.0"
+    }
+  }
+}

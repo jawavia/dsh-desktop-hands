@@ -1,0 +1,11 @@
+node_modules/
+test/bin/
+test/run/
+*.log
+*.bak
+*.bak-*
+.DS_Store
+Thumbs.db
+dist/
+*.tgz
+测试截图/

@@ -1,0 +1,9 @@
+# dsh-stroke bundle patch: host-only plugin (smooth stroke executor).
+#
+# One root-level loader row. `name` must stay the real package name.
+# Session-level authorization: stroke_arm opens a canvas session; stroke_draw
+# does not ask again. Esc / F11 / stroke_stop are the hard-stop paths.
+- insert:
+    - id: dsh-stroke
+      name: "dsh-stroke"
+      config: {}

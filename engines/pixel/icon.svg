@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="Click Matrix">
+  <title>dsh-click-matrix</title>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#12233A"/>
+      <stop offset="1" stop-color="#060B14"/>
+    </linearGradient>
+  </defs>
+  <rect x="1" y="1" width="62" height="62" rx="14" fill="url(#bg)" stroke="#1E405F" stroke-width="2"/>
+  <!-- Cross-point lattice only: major crosses at the corners, minor crosses at the edge midpoints. No grid lines, no labels over content. -->
+  <path d="M15 10.5v9M10.5 15h9M49 10.5v9M44.5 15h9M15 44.5v9M10.5 49h9M49 44.5v9M44.5 49h9" fill="none" stroke="#22D3EE" stroke-width="2.8" stroke-linecap="round"/>
+  <path d="M32 12.5v5M29.5 15h5M32 46.5v5M29.5 49h5M15 29.5v5M12.5 32h5M49 29.5v5M46.5 32h5" fill="none" stroke="#0EA5B7" stroke-width="2.4" stroke-linecap="round" opacity="0.8"/>
+  <!-- Cursor arrow: the human-visible "target on a lattice point" mark. -->
+  <path d="M25 23L25 43L30.63 38L33.75 44.25L37.5 42.38L34.38 36.25L41.25 35.75Z" fill="#F8FAFC" stroke="#22D3EE" stroke-width="1.8" stroke-linejoin="round"/>
+</svg>
